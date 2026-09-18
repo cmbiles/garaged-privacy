@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Garaged — privacy policy</title>
+    <!--
+      The source of this text is docs/PRIVACY.md in the repository. Edit that
+      first and keep this page in step with it; the store listing links here.
+      Document register (BUILD §3.1): cool paper, ink text, no decoration.
+    -->
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #f4f5f3;
+        --ink: #1b1f21;
+        --rule: #c9cfcc;
+        --dim: #5c6663;
+      }
+      html {
+        background: var(--paper);
+      }
+      body {
+        margin: 0;
+        padding: 32px 20px 64px;
+        color: var(--ink);
+        font: 16px/1.5 Roboto, system-ui, -apple-system, 'Segoe UI', sans-serif;
+        max-width: 42rem;
+        margin-inline: auto;
+      }
+      h1 {
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 1.2;
+        margin: 0 0 4px;
+      }
+      h2 {
+        font-size: 19px;
+        font-weight: 600;
+        margin: 32px 0 8px;
+      }
+      h3 {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 20px 0 6px;
+      }
+      p,
+      li {
+        max-width: 70ch;
+      }
+      dl.meta {
+        margin: 0 0 24px;
+        padding: 0 0 16px;
+        border-bottom: 1px solid var(--rule);
+        font-size: 15px;
+        line-height: 1.25;
+      }
+      dl.meta dt {
+        color: var(--dim);
+        margin-top: 8px;
+      }
+      dl.meta dd {
+        margin: 0;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 15px;
+        line-height: 1.25;
+        margin: 8px 0 16px;
+      }
+      th,
+      td {
+        text-align: left;
+        vertical-align: top;
+        padding: 8px 8px 8px 0;
+        border-bottom: 1px solid var(--rule);
+      }
+      th {
+        color: var(--dim);
+        font-weight: 500;
+        font-size: 13px;
+      }
+      .wide {
+        overflow-x: auto;
+      }
+      .todo {
+        background: #fff3c4;
+      }
+      a {
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Garaged — privacy policy</h1>
+    <dl class="meta">
+      <dt>Effective</dt>
+      <dd>18 September 2026</dd>
+      <dt>Controller</dt>
+      <dd>Chris Biles, contactable at aoo.garaged@gmail.com</dd>
+      <dt>Applies to</dt>
+      <dd>
+        the Garaged app for Android and its web version, package identifier
+        <code>uk.co.seaembee.vehiclelog</code>
+      </dd>
+    </dl>
+
+    <p>
+      Garaged is a vehicle maintenance record for people who service their own cars and
+      motorcycles. It is built so that your records stay with you. This page says exactly what
+      leaves your phone, why, and what does not.
+    </p>
+
+    <h2>The short version</h2>
+    <ul>
+      <li>
+        Your vehicles, jobs, parts, photographs and receipts are stored <strong>on your phone</strong>
+        and, if you choose, in <strong>a backup folder you pick</strong>. They are not sent to us.
+      </li>
+      <li>
+        To use the app you create an account with an <strong>email address and a password</strong>.
+        That is the only personal information we hold about you.
+      </li>
+      <li>
+        When you add a vehicle by registration number, and from time to time afterwards to pick up a new MOT, that number is sent to the
+        <strong>DVSA MOT History service</strong> to fetch the vehicle's details and MOT history. We
+        do not keep a record of it.
+      </li>
+      <li>There is <strong>no advertising, no analytics and no crash reporting</strong> in the app.</li>
+      <li>
+        Location data in photographs is <strong>removed at the moment of capture</strong>. The app
+        never reads or stores your location.
+      </li>
+    </ul>
+
+    <h2>What we hold, and why</h2>
+
+    <h3>Your account</h3>
+    <div class="wide">
+      <table>
+        <thead>
+          <tr>
+            <th>What</th>
+            <th>Why</th>
+            <th>Legal basis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Email address</td>
+            <td>To identify your account, confirm it, and let you reset a forgotten password</td>
+            <td>Performance of a contract (providing the service)</td>
+          </tr>
+          <tr>
+            <td>Password</td>
+            <td>To secure your account. Stored only as a one-way hash; we cannot read it</td>
+            <td>Performance of a contract</td>
+          </tr>
+          <tr>
+            <td>Display name (optional)</td>
+            <td>Shown in the app if you set one</td>
+            <td>Performance of a contract</td>
+          </tr>
+          <tr>
+            <td>A display preference (list density)</td>
+            <td>So the app remembers how you like the garage list laid out</td>
+            <td>Performance of a contract</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Accounts are hosted by Supabase Inc. in
+      the United Kingdom (London, eu-west-2).
+      Supabase acts as our processor. Their authentication service keeps security logs, which can
+      include the IP address and device details of sign-in attempts, for the period set out in
+      their own policy.
+    </p>
+    <p>
+      <strong>Why an account at all, if your records stay on the phone?</strong> Because the
+      vehicle lookup below spends a request against a government API quota issued in our name, and
+      it has to be able to tell one user from another to limit how often it is called. Nothing
+      else about the account is used for anything.
+    </p>
+
+    <h3>Vehicle lookup</h3>
+    <p>
+      When you add a vehicle by its registration number, the app sends that number to a small
+      service we run, which forwards it to the <strong>DVSA MOT History API</strong> and returns
+      the vehicle's make, model, colour, fuel type, engine size, registration dates, MOT test
+      results and recorded mileages. That data is then stored on your phone.
+    </p>
+    <p>
+      The same lookup runs again from time to time, so that a new MOT test — its result, its
+      mileage reading and any advisories — reaches your record without you having to re-enter it.
+      This happens at most once a day for a vehicle, when you open that vehicle in the app, and
+      whenever you tap <strong>Check for a new MOT</strong> yourself. It does not run in the
+      background, and it does not run for a vehicle you have marked as sold.
+    </p>
+    <ul>
+      <li>
+        Our service does not store the registration number or the result. It holds a short-lived
+        count of lookups per account, in memory, to limit how often the service can be called.
+      </li>
+      <li>
+        The hosting provider's function logs may record that a request happened, and when, for a
+        short period.
+      </li>
+      <li>
+        The DVSA receives the registration number in order to answer the lookup. The DVSA is a
+        government body and is a separate data controller for what it does with requests it
+        receives.
+      </li>
+      <li>
+        MOT data is public sector information licensed under the Open Government Licence v3.0. It
+        is reproduced in the app and in the sale report with that attribution.
+      </li>
+    </ul>
+    <p>You can add a vehicle by hand instead, without a lookup, and nothing is sent.</p>
+
+    <h3>Everything else stays on your device</h3>
+    <p>The following are stored only on your phone, in the app's private storage:</p>
+    <ul>
+      <li>Vehicles, registration numbers, VINs, nicknames, purchase details</li>
+      <li>Jobs, parts, part numbers, costs, notes, torque figures and fluid specifications</li>
+      <li>Service schedules and reminders</li>
+      <li>Photographs, receipts and other documents you attach</li>
+      <li>Text read from receipts by the on-device text recognition (see below)</li>
+      <li>Search indexes built from the above</li>
+    </ul>
+    <p>None of this is transmitted to us. The app has no server-side copy of your records.</p>
+
+    <h3>Backup to a folder you choose</h3>
+    <p>
+      You can set up a backup to a folder of your choosing on your phone or in a storage provider
+      you already use (for example a folder synced by a cloud storage app). The app writes your
+      records and documents there in plain, readable files so that they outlive the app.
+    </p>
+    <ul>
+      <li>
+        You choose the folder through Android's own file picker. The app receives access to that
+        one folder and nothing else on your device or in your provider account.
+      </li>
+      <li>
+        The backup is <strong>not encrypted</strong> by the app. It is your data in your storage,
+        alongside the photographs your camera already puts there. If you want it encrypted, choose
+        a provider or folder that encrypts at rest.
+      </li>
+      <li>
+        Whatever your storage provider does with files you place in it is governed by that
+        provider's policy, not this one.
+      </li>
+    </ul>
+
+    <h3>Photographs, receipts and text recognition</h3>
+    <ul>
+      <li>
+        Photographs are compressed and re-encoded on the device when captured. That process
+        <strong>removes GPS location data</strong>. The date the photograph was taken is read out of
+        the image and kept as a plain field, because it helps prove when work was done.
+      </li>
+      <li>
+        Receipt scanning and text recognition run <strong>entirely on the device</strong>, using
+        Google's ML Kit components supplied through Google Play services. No image and no
+        recognised text leaves your phone for this purpose. Google Play services may download the
+        recognition module on first use; that download is governed by Google's terms.
+      </li>
+      <li>
+        Every correction you make to a recognised part number or brand is kept on your phone so
+        the app recognises it next time. This learned dictionary is not sent to us.
+      </li>
+    </ul>
+
+    <h3>The sale report</h3>
+    <p>
+      You can generate a PDF report of a vehicle's history to hand to a buyer. It is produced on
+      your phone. It is shared only when you share it, through Android's share sheet, to a
+      recipient you choose. Location data is stripped from every image in it. We never receive a
+      copy.
+    </p>
+
+    <h3>Reminders</h3>
+    <p>
+      Reminders for planned jobs are optional, set per job, and delivered by your phone's own local
+      notification system. No reminder is sent from a server. The app asks for notification
+      permission the first time you set a reminder, and not before.
+    </p>
+
+    <h2>What we do not do</h2>
+    <ul>
+      <li>We do not use advertising or advertising identifiers.</li>
+      <li>We do not use analytics, tracking or crash-reporting services.</li>
+      <li>We do not read or store your location.</li>
+      <li>
+        We do not sell, rent or share your personal information with anyone, except as described
+        above for the vehicle lookup.
+      </li>
+      <li>
+        We do not send marketing email. The only emails you receive are the ones you trigger:
+        account confirmation and password reset.
+      </li>
+    </ul>
+
+    <h2>How long we keep things</h2>
+    <ul>
+      <li>Your account, and the email address attached to it, until you delete the account.</li>
+      <li>Lookup service logs: for the short retention period applied by the hosting provider.</li>
+      <li>
+        Your records on the phone: until you delete them in the app, or uninstall the app, or
+        clear its data.
+      </li>
+      <li>
+        Your backup folder: until you delete it. It is yours, and uninstalling the app does not
+        remove it.
+      </li>
+    </ul>
+
+    <h2>Your rights</h2>
+    <p>
+      Under the UK GDPR you can ask us for a copy of the personal data we hold about you, ask us
+      to correct it, ask us to delete it, and object to or restrict our processing of it. Because
+      the only personal data we hold is your account details, these requests are simple to meet.
+    </p>
+    <p>
+      Your maintenance records are already in your hands. The app's export produces every record
+      and document in open formats (JSON, CSV and the original image files) at any time, without
+      asking us.
+    </p>
+    <p>
+      To exercise any right, contact aoo.garaged@gmail.com. We will respond within one month.
+    </p>
+    <p>
+      If you are unhappy with how we have handled your data, you can complain to the Information
+      Commissioner's Office at <a href="https://ico.org.uk">ico.org.uk</a>.
+    </p>
+
+    <h2>Deleting your account</h2>
+    <p>
+      You can delete your account from inside the app, under Settings. Deleting it removes the
+      account, the email address it is under, and everything held against it on our server. This
+      cannot be undone.
+    </p>
+    <p>
+      You can also delete your account without the app: contact aoo.garaged@gmail.com from the
+      email address on the account, and we will remove it.
+    </p>
+    <p>
+      Either way, deleting your account does not touch the records on your phone or in your backup
+      folder. Those are yours to keep or remove. The registration lookup stops working until you
+      create a new account, and the rest of the app keeps working on the records already on the
+      phone.
+    </p>
+
+    <h2>Children</h2>
+    <p>
+      Garaged is for people who own and maintain vehicles. It is not directed at children, and we
+      do not knowingly hold an account for anyone under 13.
+    </p>
+
+    <h2>Changes</h2>
+    <p>
+      If the app starts sending records to a server — for example if an optional sync feature is
+      added in future — that will be a change to this policy, published with the version of the
+      app that introduces it, and described in the app before it is switched on for you.
+    </p>
+
+    <h2>Third parties named in this policy</h2>
+    <div class="wide">
+      <table>
+        <thead>
+          <tr>
+            <th>Party</th>
+            <th>Role</th>
+            <th>Their policy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Supabase Inc.</td>
+            <td>Hosts accounts and the lookup service</td>
+            <td><a href="https://supabase.com/privacy">supabase.com/privacy</a></td>
+          </tr>
+          <tr>
+            <td>Driver and Vehicle Standards Agency (DVSA)</td>
+            <td>Answers vehicle lookups</td>
+            <td>
+              <a href="https://www.gov.uk/government/organisations/driver-and-vehicle-standards-agency"
+                >gov.uk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Google (Play services, ML Kit)</td>
+            <td>Supplies on-device text recognition and document scanning components</td>
+            <td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
