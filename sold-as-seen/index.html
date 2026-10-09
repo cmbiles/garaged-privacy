@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sold As Seen — privacy policy</title>
+    <!--
+      The source of this text is docs/PRIVACY.md in the repository. Edit that
+      first and keep this page in step with it; the app's About screen and the
+      store listing link here. Hosted beside Garaged's policy, on the same
+      site (docs/BEFORE-YOU-PUBLISH.md). Paper, ink, no decoration.
+    -->
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #f2f1ed;
+        --ink: #1c2a3a;
+        --rule: #b9bec4;
+        --dim: #5a6672;
+      }
+      html {
+        background: var(--paper);
+      }
+      body {
+        margin: 0;
+        padding: 32px 20px 64px;
+        color: var(--ink);
+        font: 16px/1.5 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        max-width: 42rem;
+        margin-inline: auto;
+      }
+      h1 {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0 0 4px;
+      }
+      h2 {
+        font-size: 19px;
+        font-weight: 700;
+        margin: 32px 0 8px;
+      }
+      h3 {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 20px 0 6px;
+      }
+      p,
+      li {
+        max-width: 70ch;
+      }
+      dl.meta {
+        margin: 0 0 24px;
+        padding: 0 0 16px;
+        border-bottom: 1px solid var(--rule);
+        font-size: 15px;
+        line-height: 1.25;
+      }
+      dl.meta dt {
+        color: var(--dim);
+        margin-top: 8px;
+      }
+      dl.meta dd {
+        margin: 0;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 15px;
+        line-height: 1.25;
+        margin: 8px 0 16px;
+      }
+      th,
+      td {
+        text-align: left;
+        vertical-align: top;
+        padding: 8px 8px 8px 0;
+        border-bottom: 1px solid var(--rule);
+      }
+      th {
+        color: var(--dim);
+        font-weight: 500;
+        font-size: 13px;
+      }
+      .wide {
+        overflow-x: auto;
+      }
+      a {
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sold As Seen — privacy policy</h1>
+    <dl class="meta">
+      <dt>Effective</dt>
+      <dd>9 October 2026</dd>
+      <dt>Controller</dt>
+      <dd>Chris Biles, contactable at aoo.garaged@gmail.com</dd>
+      <dt>Applies to</dt>
+      <dd>the Sold As Seen app for Android, package identifier <code>uk.co.seaembee.scout</code></dd>
+    </dl>
+
+    <p>
+      Sold As Seen helps you check a used car before you go and see it: share the advert to the
+      app, and it keeps the car on a shortlist with its official MOT history, the things worth
+      asking about, what it costs to run, how far away it is and a score against what matters to
+      you. It is built so that your shortlist stays with you. This page says exactly what leaves
+      your phone, why, and what does not.
+    </p>
+
+    <h2>The short version</h2>
+    <ul>
+      <li>
+        Your shortlist — the cars, what their adverts said, photos, notes, your budget and your
+        scoring preferences — is stored <strong>on your phone</strong>. It is not sent to us. We
+        have no copy.
+      </li>
+      <li>
+        If you want the app to fetch a car's MOT history, you create an account with an
+        <strong>email address and a password</strong>. That is the only personal information we
+        hold about you. <strong>It is the same account as Garaged</strong>, our vehicle maintenance
+        app: one account works in both, and deleting it in either deletes it for both.
+      </li>
+      <li>
+        When you save a car with its registration number, that number is sent to the
+        <strong>DVSA MOT History service</strong> to fetch the car's details and MOT history, and
+        typed into <strong>DVLA's vehicle enquiry page</strong> to read its tax status and CO2. We
+        do not keep a record of either.
+      </li>
+      <li>
+        If you enter your home postcode, it and the advert's location are sent to two
+        <strong>map services</strong> to work out the distance and the drive. They are not sent to
+        us.
+      </li>
+      <li>
+        Adverts are read <strong>on your phone</strong>, in the app's own browser, when you ask.
+        Photos and screenshots are read on your phone and never uploaded.
+      </li>
+      <li>
+        There is <strong>no advertising, no analytics and no crash reporting</strong> in the app.
+        The app never reads your phone's location.
+      </li>
+    </ul>
+
+    <h2>What we hold, and why</h2>
+
+    <h3>Your account</h3>
+    <div class="wide">
+      <table>
+        <tr>
+          <th>What</th>
+          <th>Why</th>
+          <th>Legal basis</th>
+        </tr>
+        <tr>
+          <td>Email address</td>
+          <td>To identify your account, confirm it, and let you reset a forgotten password</td>
+          <td>Performance of a contract (providing the service)</td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td>To secure your account. Stored only as a one-way hash; we cannot read it</td>
+          <td>Performance of a contract</td>
+        </tr>
+      </table>
+    </div>
+    <p>
+      Accounts are hosted by Supabase Inc. in the United Kingdom (London, eu-west-2). Supabase acts
+      as our processor. Their authentication service keeps security logs, which can include the IP
+      address and device details of sign-in attempts, for the period set out in their own policy.
+    </p>
+    <p>
+      <strong>Why an account at all, if your shortlist stays on the phone?</strong> Because the
+      vehicle lookup below spends a request against a government API quota issued in our name, and
+      the service has to be able to tell one user from another to limit how often it is called.
+      Nothing else about the account is used for anything. The rest of the app works without one.
+    </p>
+    <p>
+      <strong>One account for two apps.</strong> Sold As Seen and Garaged share the same account
+      system. An account made in either app signs in to both. Garaged's own privacy policy, at
+      <a href="https://privacy.seaembee.co.uk">privacy.seaembee.co.uk</a>, covers what Garaged does
+      with it.
+    </p>
+
+    <h3>Account email</h3>
+    <p>
+      The confirmation link sent when you sign up, and the reset link sent if you forget your
+      password, are delivered by Resend, an email-sending service, on our behalf. Resend acts as
+      our processor for this purpose only: it sees the address the mail is sent to and holds a
+      short delivery log (whether the message was accepted, delivered or bounced) for the period
+      set out in their own policy. It does not see anything else.
+    </p>
+
+    <h3>Vehicle lookup</h3>
+    <p>
+      When you save a car with its registration number, the app sends that number to a small
+      service we run, which forwards it to the <strong>DVSA MOT History API</strong> and returns
+      the car's make, model, colour, fuel type, engine size, registration dates, MOT test results,
+      recorded mileages and whether DVSA has a recall outstanding for it. That data is then stored
+      on your phone. The lookup runs once, when you save the car, and again only if you ask for
+      it.
+    </p>
+    <ul>
+      <li>
+        Our service does not store the registration number or the result. It holds a short-lived
+        count of lookups per account, in memory, to limit how often the service can be called.
+      </li>
+      <li>
+        The hosting provider's function logs may record that a request happened, and when, for a
+        short period.
+      </li>
+      <li>
+        The DVSA receives the registration number in order to answer the lookup. The DVSA is a
+        government body and is a separate data controller for what it does with requests it
+        receives.
+      </li>
+      <li>
+        MOT data is public sector information licensed under the Open Government Licence v3.0, and
+        is reproduced in the app with that attribution.
+      </li>
+    </ul>
+    <p>You can save a car without a registration number, and nothing is sent.</p>
+
+    <h3>DVLA's vehicle enquiry</h3>
+    <p>
+      For a car's tax status, tax due date, CO2 figure and the date its logbook was last issued,
+      the app opens DVLA's public vehicle enquiry page (vehicleenquiry.service.gov.uk) in a browser
+      view inside the app, on your phone, enters the registration number and confirms the make,
+      and reads the answer. This happens once for a car, when you first open its report, and again
+      only when you tap <strong>Check with DVLA</strong>.
+    </p>
+    <p>
+      The request goes from your phone to GOV.UK directly, exactly as if you had visited the page
+      yourself: GOV.UK sees your phone's internet address and the registration number. The DVLA is
+      a separate data controller for that page, and GOV.UK's own privacy notice applies to it.
+      Nothing from this check is sent to us; the answer is stored on your phone.
+    </p>
+
+    <h3>Distance and the drive</h3>
+    <p>
+      If you enter your home postcode in your profile, the app sends it to
+      <strong>postcodes.io</strong>, a free postcode lookup service, to turn it into map
+      coordinates, and does the same with the location in each car's advert. It then sends the two
+      coordinates to the <strong>OpenStreetMap routing service</strong> run by FOSSGIS e.V. to get
+      the driving distance and time. The results are stored on your phone and each route is asked
+      for once.
+    </p>
+    <p>
+      Both are third-party services, and both see what is sent to them: a postcode or town, and a
+      pair of coordinates. Neither is sent to us. Leave the postcode out and nothing is sent; the
+      report then has no distance.
+    </p>
+    <p>
+      The weekly road fuel prices the app uses to cost the drive are a public statistics file from
+      GOV.UK; fetching it sends nothing about you.
+    </p>
+
+    <h3>Adverts, in the app's browser</h3>
+    <p>
+      The app reads an advert in two ways, both on your phone: you find the car in the app's own
+      browser and tap <strong>+</strong>, or you share the advert's link to the app from another
+      app and it opens in that browser. Either way the page is loaded by your phone from the
+      seller's website, as any browser would load it, and that website sees what any website
+      sees: your phone's internet address, and a browser identification that names this app. The
+      app reads the price, mileage, registration, description and photos off the page once, when
+      you tap, and stores what it read on your phone. <strong>Refresh</strong> reads a saved advert
+      again, only when you tap it.
+    </p>
+    <p>
+      No advert, page or photo is sent to us. There is no database of adverts anywhere but your
+      phone.
+    </p>
+
+    <h3>Screenshots and text recognition</h3>
+    <p>
+      Share a screenshot of an advert to the app and it reads the text off the image on your
+      phone, using Google's ML Kit text-recognition component, which is built into the app. The
+      image and the recognised text never leave your phone for this purpose. Google's component
+      may report usage statistics about itself to Google, under Google's own terms; no image and
+      no text is included in that.
+    </p>
+
+    <h3>Everything else stays on your device</h3>
+    <p>The following are stored only on your phone, in the app's private storage:</p>
+    <ul>
+      <li>
+        Your shortlist: each car's registration, what its advert said, the official record fetched
+        for it, the analysis and the score
+      </li>
+      <li>Photos and screenshots you shared to the app, or that it read from an advert</li>
+      <li>Your notes on each car, and where each car got to (viewed, rejected, bought)</li>
+      <li>
+        Your buying projects: budget, how far you will travel, must-haves and deal-breakers, your
+        miles a year
+      </li>
+      <li>
+        Your profile: home postcode, the car you drive to viewings, and how much each part of the
+        score matters to you
+      </li>
+    </ul>
+    <p>None of this is transmitted to us. The app has no server-side copy of your shortlist.</p>
+
+    <h3>Sharing a report</h3>
+    <p>
+      You can share a car's report as a single file, through Android's share sheet, to a recipient
+      you choose. It is produced on your phone. It carries the car's details, its MOT history, the
+      analysis and the score, and says the score was made for you; it leaves out the distance from
+      your home. We never receive a copy.
+    </p>
+
+    <h2>What we do not do</h2>
+    <ul>
+      <li>We do not use advertising or advertising identifiers.</li>
+      <li>We do not use analytics, tracking or crash-reporting services.</li>
+      <li>We do not read your phone's location. The app has no location permission.</li>
+      <li>
+        We do not sell, rent or share your personal information with anyone, except as described
+        above for the vehicle lookup, DVLA's page and the map services.
+      </li>
+      <li>
+        We do not send marketing email. The only emails you receive are the ones you trigger:
+        account confirmation and password reset.
+      </li>
+    </ul>
+
+    <h2>How long we keep things</h2>
+    <ul>
+      <li>Your account, and the email address attached to it, until you delete the account.</li>
+      <li>Lookup service logs: for the short retention period applied by the hosting provider.</li>
+      <li>
+        Your shortlist on the phone: until you delete the cars in the app, or uninstall the app,
+        or clear its data.
+      </li>
+    </ul>
+
+    <h2>Your rights</h2>
+    <p>
+      Under the UK GDPR you can ask us for a copy of the personal data we hold about you, ask us to
+      correct it, ask us to delete it, and object to or restrict our processing of it. Because the
+      only personal data we hold is your account details, these requests are simple to meet.
+    </p>
+    <p>To exercise any right, contact aoo.garaged@gmail.com. We will respond within one month.</p>
+    <p>
+      If you are unhappy with how we have handled your data, you can complain to the Information
+      Commissioner's Office at <a href="https://ico.org.uk">ico.org.uk</a>.
+    </p>
+
+    <h2>Deleting your account</h2>
+    <p>
+      You can delete your account from inside the app, on the Profile screen. Deleting it removes
+      the account, the email address it is under, and everything held against it on our server.
+      <strong
+        >Because the account is shared with Garaged, deleting it in Sold As Seen deletes it for
+        Garaged too</strong
+      >, and the other way round. This cannot be undone.
+    </p>
+    <p>
+      You can also delete your account without the app: contact aoo.garaged@gmail.com from the
+      email address on the account, and we will remove it.
+    </p>
+    <p>
+      Either way, deleting your account does not touch the shortlist on your phone. That is yours
+      to keep or remove. The registration lookup stops working until you create a new account, and
+      the rest of the app keeps working on the cars already on the phone.
+    </p>
+
+    <h2>Children</h2>
+    <p>
+      Sold As Seen is for people buying a car. It is not directed at children, and we do not
+      knowingly hold an account for anyone under 13.
+    </p>
+
+    <h2>Changes</h2>
+    <p>
+      If the app starts sending any of your shortlist to a server — for example if a paid vehicle
+      history check is added in future — that will be a change to this policy, published with the
+      version of the app that introduces it, and described in the app before it is switched on for
+      you.
+    </p>
+
+    <h2>Third parties named in this policy</h2>
+    <div class="wide">
+      <table>
+        <tr>
+          <th>Party</th>
+          <th>Role</th>
+          <th>Their policy</th>
+        </tr>
+        <tr>
+          <td>Supabase Inc.</td>
+          <td>Hosts accounts and the lookup service</td>
+          <td>supabase.com/privacy</td>
+        </tr>
+        <tr>
+          <td>Resend</td>
+          <td>Delivers account confirmation and password-reset email</td>
+          <td>resend.com/legal/privacy-policy</td>
+        </tr>
+        <tr>
+          <td>Driver and Vehicle Standards Agency (DVSA)</td>
+          <td>Answers vehicle lookups</td>
+          <td>gov.uk/government/organisations/driver-and-vehicle-standards-agency</td>
+        </tr>
+        <tr>
+          <td>Driver and Vehicle Licensing Agency (DVLA)</td>
+          <td>Runs the vehicle enquiry page the app reads on your phone</td>
+          <td>gov.uk/government/organisations/driver-and-vehicle-licensing-agency</td>
+        </tr>
+        <tr>
+          <td>postcodes.io (Ideal Postcodes)</td>
+          <td>Turns a postcode or town into map coordinates</td>
+          <td>postcodes.io</td>
+        </tr>
+        <tr>
+          <td>FOSSGIS e.V.</td>
+          <td>Runs the OpenStreetMap routing service that gives the driving distance and time</td>
+          <td>routing.openstreetmap.de/about.html</td>
+        </tr>
+        <tr>
+          <td>Google (ML Kit)</td>
+          <td>Supplies the on-device text-recognition component</td>
+          <td>policies.google.com/privacy</td>
+        </tr>
+        <tr>
+          <td>The websites you open in the app's browser</td>
+          <td>Serve the adverts you choose to read, and see your visit as they would from any browser</td>
+          <td>Each site's own</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
