@@ -94,7 +94,7 @@
     <h1>Sold As Seen — privacy policy</h1>
     <dl class="meta">
       <dt>Effective</dt>
-      <dd>9 October 2026</dd>
+      <dd>24 October 2026 (from version 1.0.2; the first version was effective 9 October 2026)</dd>
       <dt>Controller</dt>
       <dd>Chris Biles, contactable at aoo.garaged@gmail.com</dd>
       <dt>Applies to</dt>
@@ -129,9 +129,10 @@
         do not keep a record of either.
       </li>
       <li>
-        If you enter your home postcode, it and the advert's location are sent to two
-        <strong>map services</strong> to work out the distance and the drive. They are not sent to
-        us.
+        If you enter your home postcode, it and the advert's location are sent to a
+        <strong>postcode service</strong> to turn them into map coordinates, and the coordinates go
+        through our server to a <strong>routing service</strong> for the distance and the drive.
+        Our server passes them on and keeps no copy.
       </li>
       <li>
         Adverts are read <strong>on your phone</strong>, in the app's own browser, when you ask.
@@ -241,15 +242,23 @@
     <p>
       If you enter your home postcode in your profile, the app sends it to
       <strong>postcodes.io</strong>, a free postcode lookup service, to turn it into map
-      coordinates, and does the same with the location in each car's advert. It then sends the two
-      coordinates to the <strong>OpenStreetMap routing service</strong> run by FOSSGIS e.V. to get
-      the driving distance and time. The results are stored on your phone and each route is asked
-      for once.
+      coordinates, and does the same with the location in each car's advert. The postcode or town
+      goes from your phone to postcodes.io directly; it is not sent to us.
     </p>
     <p>
-      Both are third-party services, and both see what is sent to them: a postcode or town, and a
-      pair of coordinates. Neither is sent to us. Leave the postcode out and nothing is sent; the
-      report then has no distance.
+      To get the driving distance and time, the app then sends the two pairs of coordinates to our
+      routing service, which asks <strong>openrouteservice</strong>, run by HeiGIT gGmbH in
+      Heidelberg, Germany, for the route and passes the answer back. This needs you to be signed
+      in, as the vehicle lookup does, because each account may ask for a limited number of routes a
+      minute. Our server keeps no copy of the coordinates or the route; the host's short-lived
+      request logs record that a request was made, not what was in it. openrouteservice sees the
+      coordinates, and our server's address rather than your phone's. The results are stored on
+      your phone and each route is asked for once.
+    </p>
+    <p>
+      Signed out, or with no postcode in your profile, no coordinates are sent: the report shows a
+      distance estimated on your phone, as the crow flies with an allowance for roads, or no
+      distance at all.
     </p>
     <p>
       The weekly road fuel prices the app uses to cost the drive are a public statistics file from
@@ -413,9 +422,9 @@
           <td>postcodes.io</td>
         </tr>
         <tr>
-          <td>FOSSGIS e.V.</td>
-          <td>Runs the OpenStreetMap routing service that gives the driving distance and time</td>
-          <td>routing.openstreetmap.de/about.html</td>
+          <td>HeiGIT gGmbH (openrouteservice)</td>
+          <td>Works out the driving distance and time, asked by our routing service</td>
+          <td>heigit.org/privacy-policy</td>
         </tr>
         <tr>
           <td>Google (ML Kit)</td>
