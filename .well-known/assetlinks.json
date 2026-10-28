@@ -1,0 +1,23 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "uk.co.seaembee.scout",
+      "sha256_cert_fingerprints": [
+        "64:28:B3:D0:EC:BA:87:84:9A:8D:DC:7D:8C:54:E6:DD:15:58:57:8E:D2:CE:CC:C5:B1:4F:D7:E8:B5:5F:98:2A",
+        "9B:2C:FE:B0:04:FE:0D:DF:48:6C:8C:11:14:85:9E:82:69:B9:A3:93:66:F0:F1:2E:D1:71:3F:2D:29:BF:2B:02"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "uk.co.seaembee.scout.dev",
+      "sha256_cert_fingerprints": [
+        "62:B6:6C:99:71:A1:CC:FF:93:04:F9:F6:8D:C2:18:84:9B:91:40:7C:DE:EA:00:DD:50:1E:3F:5B:B8:50:46:C9"
+      ]
+    }
+  }
+]

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>A car from Sold As Seen</title>
+    <!--
+      A car sent from one phone to another (the scout repository,
+      src/repositories/car-link.ts, 28 Oct 2026). The source of this page is
+      docs/site/car/index.html there; it is served at
+      https://privacy.seaembee.co.uk/car/.
+
+      The car is after the # in the address, which a browser never sends: this
+      site sees a request for this page and nothing about the car. On a phone
+      with Sold As Seen, Android opens the app instead of this page, as
+      /.well-known/assetlinks.json vouches for it. Here, for a phone without
+      the app, or one that has not checked: what the car is, a button that
+      opens the app by its own scheme, and the Play listing. No analytics, no
+      cookies, nothing loaded from anywhere else.
+    -->
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #f2f1ed;
+        --panel: #faf9f6;
+        --ink: #1c2a3a;
+        --rule: #b9bec4;
+        --dim: #5a6672;
+        --accent: #2f4f78;
+        --accent-ink: #f7f6f2;
+        --plate: #f2c200;
+        --plate-ink: #111418;
+      }
+      html {
+        background: var(--paper);
+      }
+      body {
+        margin: 0 auto;
+        padding: 32px 16px 64px;
+        color: var(--ink);
+        font: 16px/1.5 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        max-width: 30rem;
+        font-variant-numeric: tabular-nums;
+      }
+      h1 {
+        font-size: 26px;
+        font-weight: 800;
+        line-height: 1.2;
+        margin: 0 0 16px;
+      }
+      .card {
+        background: var(--panel);
+        border: 2px solid var(--rule);
+        border-radius: 12px;
+        padding: 16px;
+        margin: 0 0 24px;
+      }
+      .name {
+        font-size: 20px;
+        font-weight: 800;
+        margin: 0 0 8px;
+      }
+      .plate {
+        display: inline-block;
+        background: var(--plate);
+        color: var(--plate-ink);
+        border-radius: 4px;
+        padding: 2px 10px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin: 0 0 8px;
+      }
+      .facts {
+        margin: 0;
+        color: var(--dim);
+      }
+      .button {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 48px;
+        padding: 12px 16px;
+        border-radius: 10px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: 800;
+        margin: 0 0 12px;
+      }
+      .open {
+        background: var(--accent);
+        color: var(--accent-ink);
+      }
+      .play {
+        background: var(--panel);
+        color: var(--ink);
+        border: 2px solid var(--rule);
+      }
+      [hidden] {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>A car sent from Sold As Seen</h1>
+    <div class="card" id="car" hidden>
+      <p class="name" id="name"></p>
+      <p class="plate" id="plate" hidden></p>
+      <p class="facts" id="facts"></p>
+    </div>
+    <p id="damaged" hidden>This link is damaged. Ask for the car to be sent again.</p>
+    <a class="button open" id="open" hidden>Open in Sold As Seen</a>
+    <a
+      class="button play"
+      href="https://play.google.com/store/apps/details?id=uk.co.seaembee.scout"
+      >Get Sold As Seen on Google Play</a
+    >
+    <script>
+      ;(async () => {
+        const PLAY = 'https://play.google.com/store/apps/details?id=uk.co.seaembee.scout'
+        const data = location.hash.slice(1)
+        const show = (id) => document.getElementById(id).removeAttribute('hidden')
+        const set = (id, text) => (document.getElementById(id).textContent = text)
+        const value = (claims, field) => {
+          const claim = claims && claims[field]
+          return claim && (typeof claim.value === 'string' || typeof claim.value === 'number')
+            ? claim.value
+            : null
+        }
+        let car = null
+        try {
+          const [version, packed] = data.split('.', 2)
+          if (version !== '1' || !packed || data.length > 6000) throw new Error('not a car')
+          const binary = atob(packed.replace(/-/g, '+').replace(/_/g, '/'))
+          const bytes = Uint8Array.from(binary, (c) => c.charCodeAt(0))
+          const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('deflate-raw'))
+          car = JSON.parse(await new Response(stream).text())
+        } catch {
+          car = null
+        }
+        if (!car || typeof car !== 'object') {
+          show('damaged')
+          return
+        }
+        const claims = car.claims || {}
+        const name = [value(claims, 'year'), value(claims, 'make'), value(claims, 'model')]
+          .filter((part) => part !== null)
+          .join(' ')
+        set('name', name || 'A car')
+        if (typeof car.reg === 'string' && /^[A-Z0-9]{2,8}$/.test(car.reg)) {
+          const reg = car.reg
+          const spaced = /^[A-Z]{2}[0-9]{2}[A-Z]{3}$/.test(reg) ? `${reg.slice(0, 4)} ${reg.slice(4)}` : reg
+          set('plate', spaced)
+          show('plate')
+        }
+        const price = value(claims, 'price')
+        const miles = value(claims, 'mileage')
+        const place = value(claims, 'location')
+        set(
+          'facts',
+          [
+            typeof price === 'number' ? `£${price.toLocaleString('en-GB')}` : null,
+            typeof miles === 'number' ? `${miles.toLocaleString('en-GB')} miles` : null,
+            typeof place === 'string' ? place : null,
+          ]
+            .filter(Boolean)
+            .join(', '),
+        )
+        show('car')
+        // Android opens the app by its scheme, or the Play listing without it.
+        if (/Android/i.test(navigator.userAgent)) {
+          document.getElementById('open').href =
+            `intent://car?d=${data}#Intent;scheme=uk.co.seaembee.scout;` +
+            `package=uk.co.seaembee.scout;S.browser_fallback_url=${encodeURIComponent(PLAY)};end`
+          show('open')
+        }
+      })()
+    </script>
+  </body>
+</html>
