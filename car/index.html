@@ -168,10 +168,11 @@
         )
         show('car')
         // Android opens the app by its scheme, or the Play listing without it.
+        // No package named, so SAS Test (uk.co.seaembee.scout.dev) answers too.
         if (/Android/i.test(navigator.userAgent)) {
           document.getElementById('open').href =
             `intent://car?d=${data}#Intent;scheme=uk.co.seaembee.scout;` +
-            `package=uk.co.seaembee.scout;S.browser_fallback_url=${encodeURIComponent(PLAY)};end`
+            `S.browser_fallback_url=${encodeURIComponent(PLAY)};end`
           show('open')
         }
       })()
